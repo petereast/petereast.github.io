@@ -6,8 +6,19 @@
   src="https://code.jquery.com/jquery-3.2.1.min.js"
   integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
   crossorigin="anonymous"></script>
-
+  <title>Simplicity</title>
   <script type="text/javascript">
+    function init(){
+      var choice = ["1","2","3","4","5", "6", "7", "8", "9", "A", "B", "C", "D", "E","F"]
+      var color = "#"+choice[parseInt(Math.random()*choice.length)]+choice[parseInt(Math.random()*choice.length)]+choice[parseInt(Math.random()*choice.length)]
+      $("#shade").css({"background-color":color})
+      $(".stupid").css({"color":color})
+
+      $("#insta").css({"border-color":"#"+choice[parseInt(Math.random()*choice.length)]+choice[parseInt(Math.random()*choice.length)]+choice[parseInt(Math.random()*choice.length)]})
+      $("#github").css({"border-color":"#"+choice[parseInt(Math.random()*choice.length)]+choice[parseInt(Math.random()*choice.length)]+choice[parseInt(Math.random()*choice.length)]})
+
+    }
+
     function a(){
       $("#main").css({"color":"#FFF"});
       $("#shade").animate({"height":"100%"}, 200);
@@ -23,10 +34,10 @@
   </script>
 
   </head>
-  <body>
+  <body onload="init()">
 
     <div id="main">
-      <h1>Keep It Simple, Stupid.</h1>
+      <h1>Keep It Simple, Stupid<span class="stupid">.</span></h1>
       <p>Design, code and creativity go hand in hand.</p>
       <p>Instagram or Github?</p>
       <p><button onclick="a()" id="insta">Instagram</button><button onclick="b()" id="github">Github</button></p>
