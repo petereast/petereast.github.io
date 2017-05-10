@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link type="text/css" rel="stylesheet" href="std.css" />
+    <script
+  src="https://code.jquery.com/jquery-3.2.1.min.js"
+  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+  crossorigin="anonymous"></script>
+
+  <script type="text/javascript">
+    function a(){
+      $("#main").css({"color":"#FFF"});
+      $("#shade").animate({"height":"100%"}, 200);
+      $("#insta").html("Good choice");
+      setTimeout(function(){location.href="https://www.instagram.com/petereast_"}, 1000)
+    }
+    function b(){
+      $("#main").css({"color":"#FFF"});
+      $("#shade").animate({"height":"100%"}, 200);
+      $("#github").html("Good choice");
+      setTimeout(function(){location.href="https://www.github.com/petereast"}, 1000)
+    }
+  </script>
+
+  </head>
+  <body>
+
+    <div id="main">
+      <h1>Keep It Simple, Stupid.</h1>
+      <p>Design, code and creativity go hand in hand.</p>
+      <p>Instagram or Github?</p>
+      <p><button onclick="a()" id="insta">Instagram</button><button onclick="b()" id="github">Github</button></p>
+    </div>
+
+    <div id="shade"></div>
+  </body>
+</html>
