@@ -2,8 +2,12 @@
 	<script type="text/javascript">
 		alert("Referrer: "+document.referrer);
 		alert("Location: "+document.location);
+		document.getElementById("f").submit();
 	</script>
 </head>
 <body>
+	<form name="test" action="#" method="GET" id="f">
+		<input type="hidden" name="test" value="etlkjsbefskljbfgse;kljfgshbe"/>
+	</form>
 	TESTING THIS IS WORKNIG!!!
 </body>
