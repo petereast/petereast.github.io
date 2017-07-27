@@ -882,6 +882,7 @@ ZW5lcmF0ZWQgd2l0aCBJU008L2E+PC9wPg0KDQogIDwvYm9keT4NCjwvaHRtbD4NCg==
                 download_link.appendChild(document.createTextNode("Download page"))
                 download_link.click();
                 document.getElementById("form-container").appendChild(download_link)
+                document.getElementById("form-container").appendChild(document.createTextNode(" "))
 
                 var next_stage_link = document.createElement("a");
                 next_stage_link.href = "ifr.html?h=300px&w=100%"
