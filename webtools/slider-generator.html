@@ -841,16 +841,12 @@ ZW5lcmF0ZWQgd2l0aCBJU008L2E+PC9wPg0KDQogIDwvYm9keT4NCjwvaHRtbD4NCg==
                 fread.onload = (function (theFile) {
                   return function (e) {
                     // Add the file to the list of files...
-                    global_files.push(
-                      {
+                    global_files.push({
                         "name":theFile.name,
                         "data":e.target.result,
                         "caption":""
-                      }
-                    );
-
+                      });
                   }
-
                 })(f);
 
                 if(!f.type.match('image.*') || i > 2){
