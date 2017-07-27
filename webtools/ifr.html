@@ -73,26 +73,39 @@
 
         <script>
             var onUpdate = function(){
+
+                // Get the values from the form.
                 var url = document.getElementById("url").value;
                 var height = document.getElementById("height").value;
                 var width = document.getElementById("width").value;
 
                 var skeletonCode = `<iframe style="display: block; margin-left: auto; margin-right: auto;" src="{src}" width="{wid}" height="{hei}"></iframe>`;
 
+                // Fill in the skeleton code with the values from the form.
                 var outputCode = skeletonCode.replace("{wid}", width)
                     .replace("{hei}", height)
                     .replace("{src}", url)
 
+                // Add the code to the output text area
                 document.getElementById("codeoutput").value = outputCode
                 document.getElementById("copybutton").disabled = false;
  }
           var processQueryString = function () {
-            // if the thing has been submitted with query strings...
+            // If the page has been requested using a query string
             if(location.href.search("\\?") > 0){
+              // Extract everything past the '?' from the url
               var qs = location.href.substr(location.href.search("\\?")+1)
+              // Split into key=value pairs
               var vars = qs.split('&');
+
+              // For each key-value pair
               for(var i =0, v; v = vars[i]; i++){
-                console.log(v);
+                // Using the first character as an identifier for the attribute
+                // to be set.
+                // TODO: Extend this functionality to allow longer variables,
+                // maybe through use of an object who's keys are the attribute name, and values
+                // are callback functions.
+
                 switch (v[0]) {
                   case 'h':
                     document.getElementById("height").value = v.substr(2);
@@ -109,30 +122,34 @@
             }
           }
             window.onload = function () {
+              // When the document has been loaded...
               processQueryString()
             }
             function copyCode(btn){
-                 var copytxt = document.querySelector("#codeoutput");
-                copytxt.select();
-                try{
-                    var success = document.execCommand('copy');
+              var copytxt = document.querySelector("#codeoutput");
+              copytxt.select();
+              // Select the text in the code output box
+              try{
 
-                    if(success){
-                        // do something to indicate a successfuly copy.
-                        btn.innerHTML = "Copied!"
-                        setTimeout(function(){
-                            btn.innerHTML = "Copy"
-                        }, 3000);
-                    } else{
-                        btn.innerHTML = "Unable to Copy (You'll need to do it manually!)"
-                        btn.disabled = true;
-                    }
+                var success = document.execCommand('copy');
 
-                } catch(err){
-                    // Unable to copy, do something to indicate an error.
-                     btn.innerHTML = "Unable to Copy (You'll need to do it manually!)"
-                        btn.disabled = true;
+                // Check if the browser supports JS copy&paste
+                if(success){
+                    // do something to indicate a successfuly copy.
+                    btn.innerHTML = "Copied!"
+                    setTimeout(function(){
+                        btn.innerHTML = "Copy"
+                    }, 3000);
+                } else{
+                    btn.innerHTML = "Unable to Copy (You'll need to do it manually!)"
+                    btn.disabled = true;
                 }
+
+              } catch(err){
+                // Unable to copy, do something to indicate an error.
+                 btn.innerHTML = "Unable to Copy (You'll need to do it manually!)"
+                    btn.disabled = true;
+              }
             }
 
 

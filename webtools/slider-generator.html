@@ -829,7 +829,7 @@ ZW5lcmF0ZWQgd2l0aCBJU008L2E+PC9wPg0KDQogIDwvYm9keT4NCjwvaHRtbD4NCg==
 
         <script>
             var onload = function () {
-
+              // Nothing happening yet!
             }
             function handleFileSelect(ev) {
               var files = ev.target.files;
@@ -854,32 +854,44 @@ ZW5lcmF0ZWQgd2l0aCBJU008L2E+PC9wPg0KDQogIDwvYm9keT4NCjwvaHRtbD4NCg==
                 }
 
                 fread.readAsDataURL(f);
+
+                // Add the filename to the list of files
                 var item_id = "li-"+f.name;
                 var caption_id = "ca-"+i;
                 out.push(`<li id="`+item_id+`"><strong>`,f.name, "</strong>", `<input type="text" id="`+caption_id+`" onkeyup="updateCaptionData(this)"/>`)
               }
               document.getElementById("file-list").innerHTML = out.join("")
-              console.log(global_files)
             }
+
             function generatePage(){
+
+              // If files have been imported
               if(global_files.length > 0){
-                var page = atob(sliderHTML).replace("#my-slider {", "#my-slider {\n\theight:300px;")
+                // extract the HTML page from sliderHTML
+                var page = atob(sliderHTML)
                 var filename = ""
+
+                // Place all of the images and captions into the file
                 for(var i = 0, f; f = global_files[i]; i++){
                   page = page.replace("{{img0"+(i+1)+"}}", f.data)
                   page = page.replace("{{caption0"+(i+1)+"}}", f.caption)
                   filename += f.caption + "-"
                 }
-                // Generate iframe code containing this page? maybe? idk
 
+                // Create a download link to the generated page.
                 var download_link = document.createElement("a");
                 download_link.href = "data:text/html;base64,"+btoa(page)
                 download_link.download = filename+"slider.html"
                 download_link.appendChild(document.createTextNode("Download page"))
+
+                // Automatically download the file
                 download_link.click();
+
+                // Some browsers don't support the automatic download, so add a manual link
                 document.getElementById("form-container").appendChild(download_link)
                 document.getElementById("form-container").appendChild(document.createTextNode(" "))
 
+                // Add a link to the Iframe generator
                 var next_stage_link = document.createElement("a");
                 next_stage_link.href = "ifr.html?h=300px&w=100%"
                 next_stage_link.appendChild(document.createTextNode("Open Iframe Generator"))
@@ -892,31 +904,14 @@ ZW5lcmF0ZWQgd2l0aCBJU008L2E+PC9wPg0KDQogIDwvYm9keT4NCjwvaHRtbD4NCg==
 
             function updateCaptionData(obj){
               console.log(obj.id)
+
+              // use the caption input's ID to select the appropriate document in
+              // global_files, and set the caption attribute to the value of the
+              // input box.
               global_files[parseInt(obj.id.substr(3))].caption = obj.value;
             }
-            function copyCode(btn){
-                 var copytxt = document.querySelector("#codeoutput");
-                copytxt.select();
-                try{
-                    var success = document.execCommand('copy');
 
-                    if(success){
-                        // do something to indicate a successfuly copy.
-                        btn.innerHTML = "Copied!"
-                        setTimeout(function(){
-                            btn.innerHTML = "Copy"
-                        }, 3000);
-                    } else{
-                        btn.innerHTML = "Unable to Copy (You'll need to do it manually!)"
-                        btn.disabled = true;
-                    }
-
-                } catch(err){
-                    // Unable to copy, do something to indicate an error.
-                     btn.innerHTML = "Unable to Copy (You'll need to do it manually!)"
-                        btn.disabled = true;
-                }
-            }
+            // initialise the global variables.
             var out = []
             var global_files = []
 
