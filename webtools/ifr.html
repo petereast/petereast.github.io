@@ -88,7 +88,7 @@
  }
           var processQueryString = function () {
             // if the thing has been submitted with query strings...
-            if(location.href.search("\\?")){
+            if(location.href.search("\\?") > 0){
               var qs = location.href.substr(location.href.search("\\?")+1)
               var vars = qs.split('&');
               for(var i =0, v; v = vars[i]; i++){
@@ -145,7 +145,7 @@
                 <span class="label">Page URL:</span><input id="url" style="width: 75%;"onkeyup="onUpdate()"><br>
                 <span class="label">Height:</span> <input id="height" class="
 numinput"onkeyup="onUpdate()" value="200">px<br> <span class="label">Width:</span> <input id="width" class="
-numinput" onkeyup="onUpdate()" value="300">px 
+numinput" onkeyup="onUpdate()" value="300">px
             </div>
             <div id="code-container" class="ui-section">
                 <h1> Code </h1>
