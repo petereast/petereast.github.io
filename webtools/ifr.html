@@ -86,6 +86,31 @@
                 document.getElementById("codeoutput").value = outputCode
                 document.getElementById("copybutton").disabled = false;
  }
+          var processQueryString = function () {
+            // if the thing has been submitted with query strings...
+            if(location.href.search("\\?")){
+              var qs = location.href.substr(location.href.search("\\?")+1)
+              var vars = qs.split('&');
+              for(var i =0, v; v = vars[i]; i++){
+                console.log(v);
+                switch (v[0]) {
+                  case 'h':
+                    document.getElementById("height").value = v.substr(2);
+                    break;
+                  case 'w':
+                    document.getElementById("width").value = v.substr(2);
+                    break;
+                  default:
+                    continue;
+
+                }
+              }
+              onUpdate();
+            }
+          }
+            window.onload = function () {
+              processQueryString()
+            }
             function copyCode(btn){
                  var copytxt = document.querySelector("#codeoutput");
                 copytxt.select();

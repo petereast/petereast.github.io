@@ -130,6 +130,11 @@
                 download_link.click();
                 //document.getElementById("code-container").appendChild(download_link)
 
+                var next_stage_link = document.createElement("a");
+                next_stage_link.href = "ifr.html?h=300px&w=100%"
+                next_stage_link.appendChild(document.createTextNode("Open Iframe Generator"))
+
+                document.getElementById("form-container").appendChild(next_stage_link)
               }
 
 
