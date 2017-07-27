@@ -1,0 +1,132 @@
+<html>
+    <head>
+        <title>IFrame Maker</title>
+        <style type="text/css">
+            *{
+                box-sizing: border-box;
+            }
+            #ui-container{
+                border: 1px solid grey;
+
+                display: block;
+                height: 400px;
+                width: 500px;
+                border-radius: 5px;
+
+                font-family: sans-serif;
+            }
+            .ui-section{
+                height: 50%;
+                padding: 15px;
+            }
+            #code-container{
+                background-color: #EEE;
+                color: black;
+
+                font-family: monospace;
+                text-align: center;
+            }
+            #copybutton{
+                padding: 10px;
+                background: #CCC;
+
+                border: 1px solid #BBB;
+                border-radius: 3px;
+                margin-top: 5px;
+            }
+
+            #codeoutput{
+                background: white;
+                padding: 20px;
+                word-wrap: break-word;
+
+                border: 1px solid #ccc;
+
+                border-radius: 5px;
+                display: block;
+
+                resize: none;
+                width: 100%;
+            }
+
+            .ui-section > h1{
+                font-size: 1.3em;
+                text-align: center;
+            }
+
+            .label{
+                display: inline-block;
+                width: 90px;
+                margin-top: 15px;
+            }
+
+            .numinput{
+                width: 50px;
+            }
+
+            #form-container input{
+                padding: 10px;
+                border: 1px solid #CCC;
+                border-radius: 5px;
+            }
+        </style>
+
+        <script>
+            var onUpdate = function(){
+                var url = document.getElementById("url").value;
+                var height = document.getElementById("height").value;
+                var width = document.getElementById("width").value;
+
+                var skeletonCode = `<iframe style="display: block; margin-left: auto; margin-right: auto;" src="{src}" width="{wid}" height="{hei}"></iframe>`;
+                
+                var outputCode = skeletonCode.replace("{wid}", width)
+                    .replace("{hei}", height)
+                    .replace("{src}", url)
+
+                document.getElementById("codeoutput").value = outputCode
+                document.getElementById("copybutton").disabled = false;
+ }
+            function copyCode(btn){
+                 var copytxt = document.querySelector("#codeoutput");
+                copytxt.select();
+                try{
+                    var success = document.execCommand('copy');
+
+                    if(success){
+                        // do something to indicate a successfuly copy.
+                        btn.innerHTML = "Copied!"
+                        setTimeout(function(){
+                            btn.innerHTML = "Copy"
+                        }, 3000);
+                    } else{
+                        btn.innerHTML = "Unable to Copy (You'll need to do it manually!)"
+                        btn.disabled = true;
+                    }
+
+                } catch(err){
+                    // Unable to copy, do something to indicate an error.
+                     btn.innerHTML = "Unable to Copy (You'll need to do it manually!)"
+                        btn.disabled = true;
+                }
+            }
+
+
+        </script>
+    </head>
+    <body>
+        <div id="ui-container">
+            <div id="form-container" class="ui-section">
+                <h1>Page information</h1>
+                <span class="label">Page URL:</span><input id="url" style="width: 75%;"onkeyup="onUpdate()"><br>
+                <span class="label">Height:</span> <input id="height" class="
+numinput"onkeyup="onUpdate()" value="200">px<br> <span class="label">Width:</span> <input id="width" class="
+numinput" onkeyup="onUpdate()" value="300">px <span class="label" style="width:160px;">Constrain Proportions</span><input type="checkbox" id="constrainProps"/>
+            </div>
+            <div id="code-container" class="ui-section">
+                <h1> Code </h1>
+                <textarea id="codeoutput" style="display: block;">Please fill in the form above</textarea>
+                <button id="copybutton" onclick="copyCode(this)" disabled>Copy</button>
+            </div>
+        </div>
+    </body>
+</html>
