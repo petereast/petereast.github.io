@@ -113,19 +113,24 @@
               console.log(global_files)
             }
             function generatePage(){
-              var page = atob(sliderHTML)
-              for(var i = 0, f; f = global_files[i]; i++){
-                page = page.replace("{{img0"+(i+1)+"}}", f.data)
-                page = page.replace("{{caption0"+(i+1)+"}}", f.caption)
-              }
-              // Generate iframe code containing this page? maybe? idk
+              if(global_files.length > 0){
+                var page = atob(sliderHTML).replace("#my-slider {", "#my-slider {\n\theight:300px;")
+                var filename = ""
+                for(var i = 0, f; f = global_files[i]; i++){
+                  page = page.replace("{{img0"+(i+1)+"}}", f.data)
+                  page = page.replace("{{caption0"+(i+1)+"}}", f.caption)
+                  filename += f.caption + "-"
+                }
+                // Generate iframe code containing this page? maybe? idk
 
-              var download_link = document.createElement("a");
-              download_link.href = "data:text/html;base64,"+btoa(page)
-              download_link.download = "slider.html"
-              download_link.appendChild(document.createTextNode("Download page"))
-              download_link.click();
-              //document.getElementById("code-container").appendChild(download_link)
+                var download_link = document.createElement("a");
+                download_link.href = "data:text/html;base64,"+btoa(page)
+                download_link.download = filename+"slider.html"
+                download_link.appendChild(document.createTextNode("Download page"))
+                download_link.click();
+                //document.getElementById("code-container").appendChild(download_link)
+
+              }
 
 
             }
