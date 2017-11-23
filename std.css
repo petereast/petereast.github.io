@@ -46,3 +46,17 @@ div#shade{
   height: 0%;
   background: black;
 }
+
+@media only screen and (min-width: 768px) {
+  div#pretty-banner{
+    position: absolute;
+    height: 40px;
+    width: 100%;
+    left:0px;
+    top: 0px;
+    background: linear-gradient(to right, #71fff1, #5be8b2)
+  }
+  div#main{
+    top: 40px;
+  }
+}
