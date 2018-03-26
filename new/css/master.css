@@ -1,0 +1,88 @@
+@font-face {
+  font-family: globalFont;
+  src: url("fonts/Catamaran-Regular.ttf");
+}
+
+*{
+  box-sizing: border-box;
+}
+
+body{
+  padding: 0px;
+  margin: 0px;
+  font-family: globalFont;
+}
+
+/* Design for mobile first*/
+
+div#top-nav-menu{
+  width: 100%;
+  background: rgb(255, 122, 0);
+  padding: 5px;
+}
+
+div#top-nav-menu > a{
+  display: inline-block;
+  width: 25%;
+  border: 1px solid white;
+  color: white;
+  text-decoration: none;
+  padding: 10px;
+  text-align: center;
+}
+
+div.title{
+  color: white;
+  background: linear-gradient(70deg, rgb(255, 122, 0), rgb(226, 154, 33));
+  padding: 50px;
+}
+
+div.links{
+  color: white;
+  background: linear-gradient(240deg, rgb(16, 90, 252), rgb(42, 143, 249));
+}
+.fullwidth {
+  width: 100%;
+  padding: 15px;
+  padding-left: 30px;
+}
+
+body > p{
+  padding: 15px;
+  padding-left: 30px;
+}
+
+@media screen and (min-width: 800px) {
+  div#top-nav-menu{
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    background: linear-gradient(70deg, rgba(255, 122, 0, 0.7), rgba(226, 154, 33, 0.7));
+  }
+
+  div#top-nav-menu > a{
+    width: 150px;
+
+  }
+
+  div.title{
+    padding-left: 30%;
+    padding-top: 10%;
+    height: 800px;
+  }
+
+  div.title > h1{
+    font-size: 4em;
+  }
+
+  div.title .subtitle{
+    font-size: 2em;
+  }
+
+  p.detail{
+    font-size: 1.5em;
+    padding-left: 30%;
+    padding-right: 30%;
+  }
+}
