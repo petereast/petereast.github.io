@@ -53,20 +53,20 @@ div#shade{
     height: 40px;
     width: 100%;
     left:0px;
+
+	background: linear-gradient(270deg, #35e6b8, #1edfff, #ffdc1e);
+	background-size: 600% 600%;
+
+	-webkit-animation: div#pretty-banner 16s ease infinite;
+	-moz-animation: div#pretty-banner 16s ease infinite;
+	-o-animation: div#pretty-banner 16s ease infinite;
+	animation: div#pretty-banner 16s ease infinite;
     top: 0px;
   }
   div#main{
     top: 40px;
   }
 }
-
- background: linear-gradient(270deg, #35e6b8, #1edfff, #ffdc1e);
-background-size: 600% 600%;
-
--webkit-animation: div#pretty-banner 16s ease infinite;
--moz-animation: div#pretty-banner 16s ease infinite;
--o-animation: div#pretty-banner 16s ease infinite;
-animation: div#pretty-banner 16s ease infinite;
 
 @-webkit-keyframes div#pretty-banner {
     0%{background-position:0% 50%}
