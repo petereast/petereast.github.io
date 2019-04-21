@@ -24,7 +24,7 @@ class App extends Component {
             <div className="columns">
               <ContactCard serviceName="LinkedIn" url="https://www.linkedin.com/in/peter-east-a0937754"/>
               <ContactCard serviceName="GitHub" url="http://www.github.com/petereast"/>
-              <div className="column section">Email</div>
+              <ContactCard serviceName="Instagram" url="https://www.instagram.com/petereast_/"/>
             </div>
           </div>
         </div>

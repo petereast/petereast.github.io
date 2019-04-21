@@ -1,6 +1,15 @@
 @import url('https://fonts.googleapis.com/css?family=Raleway:400,400i,800i');
 @import '~bulma/bulma';
 
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
 h1, h2{
   font-family: 'Raleway', sans-serif;
 }
@@ -22,29 +31,30 @@ strong {
 
 div.shade {
   position: fixed;
-  display: none;
   top: 0px;
   bottom: 0px;
   right: 0px;
   left: 0px;
-
+  z-index: 100;
   background: rgba(0, 0, 0, 0.3);
-  z-index: 1000;
+  opacity: 0;
 }
 
-div.contactCard:hover > .shade {
-  display: block;
+div.contactCard:hover + div.shade{
+  animation: fadeIn 0.3s 1 forwards ease-out;
+  z-index: 102;
 }
 
 div.contactCard:hover {
-  background: red;
+  z-index: 103;
 
 }
 
 div.contactCard {
-  z-index: 10000;
+  z-index: 101;
   position: relative;
   padding: 15px;
   background: white;
   border-radius: 6px;
 }
+
