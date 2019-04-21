@@ -1,0 +1,50 @@
+@import url('https://fonts.googleapis.com/css?family=Raleway:400,400i,800i');
+@import '~bulma/bulma';
+
+h1, h2{
+  font-family: 'Raleway', sans-serif;
+}
+
+body {
+  font-family: 'Raleway', sans-serif;
+}
+
+h1 {
+  font-size: 5em !important;
+  font-style: italic;
+  font-weight: 800;
+}
+
+strong {
+  font-style: italic !important;
+  font-weight: 800 !important;
+}
+
+div.shade {
+  position: fixed;
+  display: none;
+  top: 0px;
+  bottom: 0px;
+  right: 0px;
+  left: 0px;
+
+  background: rgba(0, 0, 0, 0.3);
+  z-index: 1000;
+}
+
+div.contactCard:hover > .shade {
+  display: block;
+}
+
+div.contactCard:hover {
+  background: red;
+
+}
+
+div.contactCard {
+  z-index: 10000;
+  position: relative;
+  padding: 15px;
+  background: white;
+  border-radius: 6px;
+}
