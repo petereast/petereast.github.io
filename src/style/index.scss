@@ -1,4 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Raleway:400,400i,800i');
+
+$light: #0b637a;
+
 @import '~bulma/bulma';
 
 @keyframes fadeIn {
@@ -12,6 +15,7 @@
 
 h1, h2{
   font-family: 'Raleway', sans-serif;
+  color: #ed9982 !important;
 }
 
 body {
@@ -27,6 +31,7 @@ h1 {
 strong {
   font-style: italic !important;
   font-weight: 800 !important;
+  color: lighten(#ed9982, 10%)!important;
 }
 
 div.shade {
@@ -56,5 +61,10 @@ div.contactCard {
   padding: 15px;
   background: white;
   border-radius: 6px;
+}
+
+div.section--bottom-half {
+  color: black !important;
+
 }
 
