@@ -14,10 +14,10 @@ class App extends Component {
           <div className="hero-body">
             <div className="container" style={{position: "fixed", left: "5%"}}>
               <h1 className="title">Peter East's Personal Internet Dump</h1>
-              <h2 className="subtitle">
-                Fullstack software developer based in <strong>Cambridge</strong>
+              <h2 className="subtitle is-size-3">
+                Backend web developer based in <strong>Cambridge</strong>
                 <br/>
-                I believe in <strong>strong types</strong>, functional programming and good <strong>coffee</strong>.
+                I believe in <strong>functional programming</strong>, <strong>strong types</strong> and good <strong>coffee</strong>.
               </h2>
             </div>
           </div>
