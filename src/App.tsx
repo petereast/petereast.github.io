@@ -1,11 +1,15 @@
 import React, { Component } from 'react';
 import ContactCard from './components/ContactCard';
+import { Helmet } from 'react-helmet';
 import './style/index.scss';
 
 class App extends Component {
   render() {
     return (
       <div className="">
+        <Helmet>
+          <title>Peter East</title>
+        </Helmet>
         <div className="hero is-light is-fullheight">
           <div className="hero-body">
             <div className="container" style={{position: "fixed", left: "5%"}}>
