@@ -17,7 +17,7 @@ class App extends Component {
               <h1 className="title big-title">
                 Let's build some high quality software together.
               </h1>
-              <h2 className="subtitle is-size-2">
+              <h2 className="subtitle is-size-3">
                 <ul>
                   <li>
                     Software development services for{" "}
@@ -67,9 +67,9 @@ class App extends Component {
                   Software that scales is important
                 </h1>
                 <p className="is-size-4">
-                  I beleive in building software that will scale to cope with
+                  I believe in building software that will scale to cope with
                   current and future needs, both in terms of runtime and
-                  development peformance.
+                  development performance.
                 </p>
               </div>
               <div className="section">
@@ -78,7 +78,7 @@ class App extends Component {
                   I'm not just quoting Radiohead, idealism in software design
                   and implementation costs a lot of money. While it's possible
                   for a piece of software to be perfect first time, it's
-                  difficult, and makes it much harder to guarentee that the
+                  difficult, and makes it much harder to guarantee that the
                   software actually meets the requirements.
                 </p>
               </div>
