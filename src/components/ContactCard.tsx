@@ -15,6 +15,5 @@ export default (
       <h1 className="title is-size-6">{serviceName}</h1>
       <a href={url} className="button">View Profile</a>
     </div>
-    <div className="shade"></div>
   </div>
 )
