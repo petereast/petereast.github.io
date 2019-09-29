@@ -14,7 +14,7 @@ class App extends Component {
         <div className="hero is-fullheight is-white">
           <div className="hero-body">
             <div className="container">
-              <h1 className="title">
+              <h1 className="title big-title">
                 Let's build some high quality software together.
               </h1>
               <h2 className="subtitle is-size-2">
