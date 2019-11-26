@@ -17,11 +17,11 @@ $footer-background-color: hsl(0, 0%, 21%);
 }
 
 .big-title {
-  font-size: $size-1;
+  font-size: $size-2;
   padding-bottom: 48px;
   @media screen and (min-width: 798px) {
     padding-bottom: 24px;
-    font-size: 5rem;
+    font-size: 3rem;
   }
 
 }
