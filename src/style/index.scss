@@ -18,6 +18,7 @@ $footer-background-color: hsl(0, 0%, 21%);
 
 .big-title {
   font-size: $size-2;
+  letter-spacing: -0.062em;
   padding-bottom: 48px;
   @media screen and (min-width: 798px) {
     padding-bottom: 24px;
@@ -28,6 +29,7 @@ $footer-background-color: hsl(0, 0%, 21%);
 
 h1, h2{
   font-family: 'Lexend Deca', sans-serif;
+  letter-spacing: -0.052em;
   font-weight: 400;
   color: #14307e !important;
 }
